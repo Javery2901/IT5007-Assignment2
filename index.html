@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>PeerPrep Question Service</title>
+        <script src="question_service.js" defer></script>
+        <link rel="stylesheet" href="question_service.css">
+    </head>
+    <body>
+        <nav>
+            <!-- Besides Homepage, the navigation bar contains two other buttons: Add Question and List All Questions.
+            Deleting and updating buttons are integrated within Question Table, making it more convenient for users to operate. -->
+            <button class="homePage button" title="Click for HomePage">HomePage</button>
+            <button class="addQuestion button" title="Add a new question to list">Add Question</button>
+            <button class="viewList button" title="List all questions">List All Questions</button>
+        </nav>
+        
+        <div id="homepage" style='display:none'>
+        </div>
+
+        <div id="addQuestionForm" style="display: none;">
+            <p>Enter question details:</p>
+            <br>
+            <!-- use input for question title, short, single-line text -->
+            <label for="questionTitle">Question Title</label>
+            <br>
+            <input type="text" id="questionTitle" class="questionTitle" style="width:40%; margin-bottom: 25px;">
+            <br>
+
+            <!-- use textarea for question title, multi-line text -->
+            <label for="questionDescription">Question Description</label>
+            <br>
+            <textarea id="questionDescription" class="questionDescription" style="width:40%; margin-bottom: 25px"></textarea>
+            <br>
+            
+            <!-- use select for question Category and Complexity, preload options -->
+            <label for="questionCategory">Category</label>
+            <select id="questionCategory" class="questionCategory" style="margin-bottom: 25px;">
+                <option value="" disabled selected>Select a category</option>
+                <option value="Algorithm">Algorithm</option>
+                <option value="Networking">Networking</option>
+                <option value="Operation System">Operation System</option>
+                <option value="Database">Database</option>
+                <option value="System Design">System Design</option>
+                <option value="Others">Others</option>
+            </select>
+
+            <br>
+            
+            <label for="questionComplexity">Complexity</label>
+            <select id="questionComplexity" class="questionComplexity" style="margin-bottom: 25px;">
+                <option value="" disabled selected>Select complexity level</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+            <br>
+
+            <button type="submit" class="submitQuestion">Submit Question</button>
+        </div>
+
+        <div id="list" style="display: none;">
+            <table id="list_table">
+                <thead>
+                    <tr>
+                        <th class="Sno">Serial Number</th>
+                        <th class="questionId">Question ID</th>
+                        <th class="questionTitle">Question Title</th>
+                        <th class="questionDescription">Description</th>
+                        <th class="questionCategory">Category</th>
+                        <th class="questionComplexity">Complexity</th>
+                        <th class="questionActions">Edit</th>
+                        <th class="questionDelete">Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="dataBody"></tbody>
+            </table>
+        </div>
+    </body>
+</html>
